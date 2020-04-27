@@ -1,0 +1,10 @@
+public class Amiibo {
+    @AuraEnabled
+	public String name;
+    @AuraEnabled
+    public ReleaseObject release;
+    @AuraEnabled
+    public String image;
+    @AuraEnabled
+    public String amiiboSeries;
+}

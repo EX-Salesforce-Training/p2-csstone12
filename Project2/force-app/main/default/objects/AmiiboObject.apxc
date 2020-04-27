@@ -1,0 +1,5 @@
+public class AmiiboObject {
+    //public Amiibo amiibo;
+    @AuraEnabled
+    public List<Amiibo> amiibo;
+}

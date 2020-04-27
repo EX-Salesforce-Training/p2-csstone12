@@ -1,0 +1,69 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" controller="CustomApexSearchBarController">
+    <aura:attribute name="searchText" type="String" />
+    <aura:attribute name ="Amiibo" type="Map" default="{
+                                                       'AmiiboName': '',
+                                                       'AmiiboSeries': '',
+                                                       'AmiiboImage': '',
+                                                       'AmiiboRelease': ''
+                                                       }"/>
+
+    <div class="slds-form-element slds-lookup" data-select="single">
+        <div class="slds-form-element__control">
+            <div class="slds-input-has-icon slds-input-has-icon--right slds-col slds size_1-of-3">
+                <lightning:buttonIcon iconName="utility:search" variant="bare" onclick="{! c.handleClick }" alternativeText="" class="slds-input__icon" />
+                <ui:inputText value="{!v.searchText}" class="slds-lookup__search-input slds-input" placeholder="" />
+            </div>
+            <div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <h1 class="header">{!v.Amiibo.AmiiboName1}</h1>
+                    <br/>
+                    <!--<p>{!v.Amiibo.AmiiboRelease1}</p>-->
+                    <img src="{!v.Amiibo.AmiiboImage1}"/>
+                    <br/>
+                    <br/>
+                    <p>{!v.Amiibo.AmiiboSeries1}</p>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <h1>{!v.Amiibo.AmiiboName2}</h1>
+                    <br/>
+                    <!--<p>{!v.Amiibo.AmiiboRelease1}</p>-->
+                    <img src="{!v.Amiibo.AmiiboImage2}"/>
+                    <br/>
+                    <br/>
+                    <p>{!v.Amiibo.AmiiboSeries2}</p>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div>
+                    <h1>{!v.Amiibo.AmiiboName3}</h1>
+                    <br/>
+                    <!--<p>{!v.Amiibo.AmiiboRelease1}</p>-->
+                    <img src="{!v.Amiibo.AmiiboImage3}"/>
+                    <br/>
+                    <br/>
+                    <p>{!v.Amiibo.AmiiboSeries3}</p>
+                </div>
+                
+                   
+                
+                <!--<lightning:card>
+                    <p>{!v.Amiibo.AmiiboName3}</p>
+                    <p>{!v.Amiibo.AmiiboRelease3}</p>
+                    <img src="{!v.Amiibo.AmiiboImage3}"/>
+                    <p>{!v.Amiibo.AmiiboSeries3}</p>
+                </lightning:card>-->
+            </div>
+        </div>
+    </div>
+    
+</aura:component>

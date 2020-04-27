@@ -1,0 +1,37 @@
+public class CustomApexSearchBarController {
+	@AuraEnabled
+    public static AmiiboObject searchForIds(String SearchText){
+        String restAPIURL = 'https://www.amiiboapi.com/api/amiibo/?name='+SearchText;
+		system.debug(restAPIURL);
+        HttpRequest httpRequest = new HttpRequest();
+        httpRequest.setMethod('GET');
+        httpRequest.setEndpoint(restAPIURL);
+
+        String response = '';
+		AmiiboObject curAmiibo = new AmiiboObject();
+        try {
+
+            Http http = new Http();
+            HttpResponse httpResponse = http.send(httpRequest);
+
+            if (httpResponse.getStatusCode() == 200 ) {
+
+                curAmiibo = (AmiiboObject)JSON.deserialize(httpResponse.getBody(),AmiiboObject.class);
+				system.debug(curAmiibo);
+                system.debug(curAmiibo.amiibo[0].release.au);
+
+
+
+            } else {
+                System.debug(' httpResponse ' + httpResponse.getBody() );
+                throw new CalloutException( httpResponse.getBody() );
+            }
+
+        } catch( System.Exception e) {
+
+            System.debug('ERROR: '+ e);
+            throw e;
+        }
+        return curAmiibo;
+    }
+}

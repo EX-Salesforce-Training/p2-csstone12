@@ -1,4 +1,0 @@
-<aura:component implement="force:appHostable">
-    <aura:attribute name="display" type="Boolean" default="true"/>
-    <lightning:button label="Enter" title="show" onclick="{!c.show}"/>
-</aura:component>
